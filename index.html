@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Chúc mừng sinh nhật Minh Anh</title>
+  <title>ChÃºc má»«ng sinh nháº­t Minh Anh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
@@ -422,7 +422,7 @@
       font-weight: 600;
     }
 
-    /* Screen 3 – card */
+    /* Screen 3 â€“ card */
     .wish-title {
       font-family: 'Poppins', system-ui, sans-serif;
       font-size: 1.7rem;
@@ -599,7 +599,7 @@
       }
     }
 
-    /* Custom cursor – circle + sparkle trail */
+    /* Custom cursor â€“ circle + sparkle trail */
     .cursor-circle {
       position: fixed;
       width: 18px;
@@ -633,7 +633,7 @@
       to { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
     }
 
-    /* Page 1 – Hero intro */
+    /* Page 1 â€“ Hero intro */
     .screen[data-screen="0"] .screen-inner {
       max-width: none;
       padding: 0;
@@ -710,7 +710,7 @@
       display: none;
     }
 
-    /* Page 2 – Message two columns + parallax */
+    /* Page 2 â€“ Message two columns + parallax */
     .message-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -743,7 +743,7 @@
       margin-bottom: 0.9rem;
     }
 
-    /* Page 3 – Final: Baby Blue nền, chữ trắng/bạc high-end */
+    /* Page 3 â€“ Final: Baby Blue ná»n, chá»¯ tráº¯ng/báº¡c high-end */
     .screen[data-screen="2"] .screen-inner {
       background: linear-gradient(160deg, #93c5fd 0%, #bfdbfe 40%, #dbeafe 100%);
       border: 1px solid rgba(255,255,255,0.4);
@@ -766,7 +766,7 @@
     .screen[data-screen="2"] .wish-intro {
       color: rgba(255,255,255,0.95);
     }
-    /* Page 4: ẩn quà + share đến khi bấm nút */
+    /* Page 4: áº©n quÃ  + share Ä‘áº¿n khi báº¥m nÃºt */
     .screen[data-screen="2"] .final-reveal {
       display: none !important;
     }
@@ -853,22 +853,13 @@
       margin-bottom: 1.5rem;
       font-style: italic;
     }
-    .gift-popup-close {
-      background: rgba(255,255,255,0.95);
-      color: #1e40af;
-    }
+    .gift-popup-close {\n      background: rgba(255,255,255,0.95);\n      color: #1e40af;\n    }
 
-    .btn-glow {
-      box-shadow: 0 0 20px rgba(96,165,250,0.5), 0 0 40px rgba(96,165,250,0.25);
-    }
+    .btn-glow {\n      box-shadow: 0 0 20px rgba(96,165,250,0.5), 0 0 40px rgba(96,165,250,0.25);\n    }\n    body.chaos-mode .btn-glow {\n      box-shadow: 0 0 22px rgba(248,113,113,0.8), 0 0 48px rgba(251,113,133,0.5);\n    }
     .btn-glow:hover {
       box-shadow: 0 0 28px rgba(96,165,250,0.7), 0 0 50px rgba(96,165,250,0.35);
     }
-    .final-icon {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
+    .final-icon {\n      font-size: 4rem;\n      margin-bottom: 0.5rem;\n      display: block;\n    }\n    body.chaos-mode .final-icon {\n      transform: rotate(-8deg);\n    }
     .easter-overlay {
       position: fixed;
       inset: 0;
@@ -885,12 +876,7 @@
       opacity: 1;
       pointer-events: auto;
     }
-    .easter-content {
-      font-size: 2rem;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
+    .easter-content {\n      font-size: 2rem;\n      color: #fff;\n      text-align: center;\n      padding: 2rem;\n    }\n    .chaos-overlay {\n      position: fixed;\n      inset: 0;\n      background: radial-gradient(circle at top, rgba(248,113,113,0.25), transparent 55%), rgba(15,23,42,0.92);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      z-index: 10002;\n      opacity: 0;\n      pointer-events: none;\n      transition: opacity 0.3s ease;\n    }\n    .chaos-overlay.show {\n      opacity: 1;\n      pointer-events: auto;\n    }\n    .chaos-overlay-inner {\n      text-align: center;\n      color: #fff7ed;\n      padding: 1.6rem 1.2rem;\n      max-width: 320px;\n      width: 86%;\n      border-radius: 18px;\n      background: linear-gradient(140deg, #f97316 0%, #fb7185 50%, #facc15 100%);\n      box-shadow: 0 18px 50px rgba(0,0,0,0.6);\n      transform: translateY(8px);\n      animation: chaos-glitch 0.9s infinite alternate;\n    }\n    .chaos-warning-label {\n      font-size: 0.8rem;\n      letter-spacing: 0.22em;\n      text-transform: uppercase;\n      opacity: 0.9;\n      margin-bottom: 0.4rem;\n    }\n    .chaos-warning-text {\n      font-size: 0.95rem;\n      line-height: 1.6;\n      font-weight: 600;\n    }\n    @keyframes chaos-glitch {\n      0% { transform: translate(-2px, 4px) skewX(-1deg); filter: hue-rotate(0deg); }\n      50% { transform: translate(1px, -2px) skewX(1deg); filter: hue-rotate(10deg); }\n      100% { transform: translate(0, 0) skewX(-0.5deg); filter: hue-rotate(-10deg); }\n    }
 
     @media (max-width: 720px) {
       body {
@@ -990,7 +976,7 @@
 </head>
 <body>
   <div class="file-open-notice" id="fileOpenNotice">
-    Bạn đang mở từ máy → link/QR sẽ không chia sẻ được. Để mở link là thấy thiệp (và QR hoạt động), hãy mở bằng:
+    Báº¡n Ä‘ang má»Ÿ tá»« mÃ¡y â†’ link/QR sáº½ khÃ´ng chia sáº» Ä‘Æ°á»£c. Äá»ƒ má»Ÿ link lÃ  tháº¥y thiá»‡p (vÃ  QR hoáº¡t Ä‘á»™ng), hÃ£y má»Ÿ báº±ng:
     <a href="https://buihonganhknight2901-lab.github.io/Birthday_MinhAnh/" target="_blank" rel="noopener">https://buihonganhknight2901-lab.github.io/Birthday_MinhAnh/</a>
   </div>
   <div class="cursor-circle" id="cursorCircle" aria-hidden="true"></div>
@@ -1001,21 +987,28 @@
   <div class="easter-overlay" id="easterOverlay">
     <div class="easter-content" id="easterContent">🏺 Stay Slay!</div>
   </div>
+  <div class="chaos-overlay" id="chaosOverlay">
+    <div class="chaos-overlay-inner">
+      <p class="chaos-warning-label">CẢNH BÁO</p>
+      <p class="chaos-warning-text">PHÁT HIỆN MỘT THẾ LỰC CÒN NGHỊCH HƠN ĐANG ĐẾN...</p>
+    </div>
+  </div>
   <audio id="bgMusic" src="1.mp4" loop></audio>
-  <!-- Tùy chọn: thêm file tiếng pháo nổ (explosion.mp3) và bật trong JS khi click nhận quà -->
+  <!-- TÃ¹y chá»n: thÃªm file tiáº¿ng phÃ¡o ná»• (explosion.mp3) vÃ  báº­t trong JS khi click nháº­n quÃ  -->
   <audio id="soundExplosion" preload="auto"></audio>
+  <audio id="alarmSound" src="Alarm Sound Effect.mp4" preload="auto"></audio>
 
   <main>
     <div class="flow-shell">
       <header class="flow-header">
         <div class="badge">
           <span class="badge-dot"></span>
-          <span>Sinh nhật Minh Anh</span>
+          <span>Sinh nháº­t Minh Anh</span>
         </div>
         <div class="header-right">
           <button class="btn-music" id="btnMusic">
-            <span>♪</span>
-            <span>Bật nhạc</span>
+            <span>â™ª</span>
+            <span>Báº­t nháº¡c</span>
           </button>
           <div class="step-indicator">
             <span class="step-dot active" data-step-dot="0"></span>
@@ -1029,15 +1022,15 @@
       <section class="screen active" data-screen="0">
         <div class="screen-inner">
           <div class="zodiac-orbit">
-            <span>♒</span>
+            <span>â™’</span>
           </div>
           <div class="screen-inner-content">
-            <p class="hero-headline">01.02.2003 — THE AQUARIUS</p>
+            <p class="hero-headline">01.02.2003 â€” THE AQUARIUS</p>
             <p class="hero-text">
-              Gửi Minh Anh. Hôm nay là ngày của bạn. Chúng tôi có vài dòng ngắn gọn dành cho nàng Bảo Bình tuổi 23.</p>
+              Gá»­i Minh Anh. HÃ´m nay lÃ  ngÃ y cá»§a báº¡n. ChÃºng tÃ´i cÃ³ vÃ i dÃ²ng ngáº¯n gá»n dÃ nh cho nÃ ng Báº£o BÃ¬nh tuá»•i 23.</p>
             <div class="btn-row">
               <button class="btn-primary" data-next>
-                Tiếp theo
+                Tiáº¿p theo
               </button>
             </div>
           </div>
@@ -1048,21 +1041,21 @@
       <section class="screen" data-screen="1">
         <div class="screen-inner">
           <div class="zodiac-orbit">
-            <span>♒</span>
+            <span>â™’</span>
           </div>
           <div class="screen-inner-content">
             <div class="message-grid" id="messageGrid">
               <div class="message-photo" id="messagePhoto">
-                <img src="older.jpg" alt="Kỷ niệm">
+                <img src="older.jpg" alt="Ká»· niá»‡m">
               </div>
               <div class="message-text">
                 <h2 class="wish-title">CHEERS TO 23!</h2>
                 <p class="subtitle">
-                  Tuổi 23, chúc bạn giữ vững phong độ xinh đẹp và sự tự tin này. Cảm ơn vì đã luôn là một người bạn thú vị. Mọi kế hoạch đi chơi hay cần sự tiếp ứng, cứ alo, chúng tôi có mặt.
+                  Tuá»•i 23, chÃºc báº¡n giá»¯ vá»¯ng phong Ä‘á»™ xinh Ä‘áº¹p vÃ  sá»± tá»± tin nÃ y. Cáº£m Æ¡n vÃ¬ Ä‘Ã£ luÃ´n lÃ  má»™t ngÆ°á»i báº¡n thÃº vá»‹. Má»i káº¿ hoáº¡ch Ä‘i chÆ¡i hay cáº§n sá»± tiáº¿p á»©ng, cá»© alo, chÃºng tÃ´i cÃ³ máº·t.
                 </p>
                 <div class="btn-row" style="margin-top: 1.2rem;">
                   <button class="btn-secondary" data-next>
-                    Tiếp nào 🎂
+                    Tiáº¿p nÃ o ðŸŽ‚
                   </button>
                 </div>
               </div>
@@ -1076,52 +1069,117 @@
       <section class="screen" data-screen="2">
         <div class="screen-inner">
           <div class="zodiac-orbit">
-            <span>♒</span>
+            <span>â™’</span>
           </div>
           <div class="screen-inner-content">
             <div class="pill-date">
               <span>Celebration</span>
-              <span>Happy Birthday · 23</span>
+              <span>Happy Birthday Â· 23</span>
             </div>
 
-            <span class="final-icon" aria-hidden="true">🎂</span>
+            <span class="final-icon" aria-hidden="true">ðŸŽ‚</span>
             <h2 class="wish-title">
               HAPPY BIRTHDAY!
             </h2>
             <p class="wish-intro">
-              Chúc bạn tuổi mới rực rỡ, công việc thuận lợi, tiền đầy túi. Chúc mừng sinh nhật!
+              ChÃºc báº¡n tuá»•i má»›i rá»±c rá»¡, cÃ´ng viá»‡c thuáº­n lá»£i, tiá»n Ä‘áº§y tÃºi. ChÃºc má»«ng sinh nháº­t!
             </p>
 
             <div class="final-cta-wrap">
               <button class="btn-primary btn-glow" id="btnSpin">
-                CLICK ĐỂ NHẬN QUÀ 🎁
+                CLICK Äá»‚ NHáº¬N QUÃ€ ðŸŽ
               </button>
             </div>
 
             <div class="reward-card final-reveal" id="rewardCardReveal">
               <div class="reward-options" id="rewardOptions">
-                <div class="reward-option main">Chúc bạn may mắn lần sau</div>
+                <div class="reward-option main">ChÃºc báº¡n may máº¯n láº§n sau</div>
                 <div class="reward-option">100k ting ting</div>
-                <div class="reward-option">1 chiếc Mec</div>
-                <div class="reward-option">1 căn villa</div>
+                <div class="reward-option">1 chiáº¿c Mec</div>
+                <div class="reward-option">1 cÄƒn villa</div>
               </div>
               <p class="spin-result" id="spinResult">
-                Bấm thử một lần cho vui, biết đâu hôm nay vũ trụ nhẹ tay hơn thường lệ.
+                Báº¥m thá»­ má»™t láº§n cho vui, biáº¿t Ä‘Ã¢u hÃ´m nay vÅ© trá»¥ nháº¹ tay hÆ¡n thÆ°á»ng lá»‡.
               </p>
             </div>
 
           </div>
         </div>
       </section>
+
+      <!-- AQUARIUS UNIVERSE: THO VU -->
+      <section class="chaos-section" id="thoVuSection">
+        <div class="chaos-inner">
+          <p class="chaos-tagline">Vũ trụ Bảo Bình · Level 2</p>
+          <h2 class="chaos-title">16.02.2003 — THE SECOND CHAOS</h2>
+          <p class="chaos-intro">
+            Tạm biệt sự thanh lịch của bạn trước, chào mừng bạn đến với hệ tư tưởng mang tên Thơ Vũ.
+            Khu vực dành riêng cho nhân vật có chỉ số "nghịch" đạt ngưỡng báo động.
+          </p>
+
+          <div class="chaos-photo-card">
+            <div class="chaos-photo-placeholder">Slot để bạn<br>thay ảnh Thơ Vũ "quậy"</div>
+          </div>
+
+          <div class="chaos-grid">
+            <article class="chaos-card">
+              <h3 class="chaos-card-title">VISUAL</h3>
+              <p class="chaos-card-text">
+                Xinh kiểu năng động, bất chấp mọi khoảnh khắc dìm hàng.
+                Camera thường có thể làm khó người khác, nhưng với Thơ Vũ thì chỉ là chuyện nhỏ.
+              </p>
+            </article>
+            <article class="chaos-card">
+              <h3 class="chaos-card-title">IQ</h3>
+              <p class="chaos-card-text">
+                Out trình trong việc bày trò. Luôn biết cách biến những buổi tụ tập bình thường
+                thành những trận cười "sang chấn tâm lý".
+              </p>
+            </article>
+            <article class="chaos-card">
+              <h3 class="chaos-card-title">THÁI ĐỘ</h3>
+              <p class="chaos-card-text">
+                Sống hết mình, chơi hết sức. Không có khái niệm "ngại" trong từ điển,
+                miễn là vui và không ai bị bỏ lại phía sau.
+              </p>
+            </article>
+            <article class="chaos-card">
+              <h3 class="chaos-card-title">CÁI NẾT</h3>
+              <p class="chaos-card-text">
+                Nghịch ngợm 10 điểm, lầy lội không ai bằng. Nhưng thiếu cái sự "hề" này
+                thì cuộc đời chúng tôi mất vui hẳn.
+              </p>
+            </article>
+          </div>
+
+          <section class="chaos-message-block">
+            <h3 class="chaos-message-title">TO OUR CHAOTIC ENERGY!</h3>
+            <p class="chaos-message-text">
+              Tuổi 23, chúc bạn quậy vừa đủ để ví chúng tôi còn thở,
+              nhưng vẫn phải giữ nguyên cái năng lượng rạng rỡ này nhé.
+              Cảm ơn vì đã luôn "phá tan" mọi sự tĩnh lặng của chúng tôi bằng tiếng cười.
+              Mọi kế hoạch quậy phá sắp tới, cứ hú, chúng tôi luôn sẵn sàng tiếp chiêu!
+            </p>
+          </section>
+
+          <section class="chaos-final-block">
+            <h3 class="chaos-final-title">HAPPY BIRTHDAY, THƠ VŨ! 🥂</h3>
+            <p class="chaos-final-text">
+              Chúc tuổi mới rực rỡ, bớt "phá" ví bạn bè lại và ngày càng xinh đẹp, thành công.
+              Chúc mừng sinh nhật!
+            </p>
+          </section>
+        </div>
+      </section>
     </div>
   </main>
 
-  <!-- Pop-up sau khi bấm nhận quà -->
+  <!-- Pop-up sau khi báº¥m nháº­n quÃ  -->
   <div class="gift-popup" id="giftPopup">
     <div class="gift-popup-inner">
-      <p class="gift-popup-result">Kết quả: chúc bạn may mắn lần sau nha, nhưng với tụi t thì bạn vẫn luôn là giải đặc biệt.</p>
-      <p class="gift-popup-joke">Sự tiếc nuối của bạn chính là niềm hạnh phúc cho ví tiền của tôi. HA said :))))))</p>
-      <button class="btn-primary btn-glow gift-popup-close" id="giftPopupClose">Đóng</button>
+      <p class="gift-popup-result">Káº¿t quáº£: chÃºc báº¡n may máº¯n láº§n sau nha, nhÆ°ng vá»›i tá»¥i t thÃ¬ báº¡n váº«n luÃ´n lÃ  giáº£i Ä‘áº·c biá»‡t.</p>
+      <p class="gift-popup-joke">Sá»± tiáº¿c nuá»‘i cá»§a báº¡n chÃ­nh lÃ  niá»m háº¡nh phÃºc cho vÃ­ tiá»n cá»§a tÃ´i. HA said :))))))</p>
+      <button class="btn-primary btn-glow gift-popup-close" id="giftPopupClose">ÄÃ³ng</button>
     </div>
   </div>
 
@@ -1204,10 +1262,10 @@
         await bgMusic.play();
         musicOn = true;
         if (btnMusic) {
-          btnMusic.querySelector('span:last-child').textContent = 'Tắt nhạc';
+          btnMusic.querySelector('span:last-child').textContent = 'Táº¯t nháº¡c';
         }
       } catch (e) {
-        // silent; browser có thể chặn nếu chưa có tương tác
+        // silent; browser cÃ³ thá»ƒ cháº·n náº¿u chÆ°a cÃ³ tÆ°Æ¡ng tÃ¡c
       }
     }
 
@@ -1216,7 +1274,7 @@
       bgMusic.pause();
       musicOn = false;
       if (btnMusic) {
-        btnMusic.querySelector('span:last-child').textContent = 'Bật nhạc';
+        btnMusic.querySelector('span:last-child').textContent = 'Báº­t nháº¡c';
       }
     }
 
@@ -1230,7 +1288,7 @@
       });
     }
 
-    // Bật nhạc cố gắng càng sớm càng tốt
+    // Báº­t nháº¡c cá»‘ gáº¯ng cÃ ng sá»›m cÃ ng tá»‘t
     document.addEventListener('DOMContentLoaded', () => {
       turnOnMusic();
     });
@@ -1246,7 +1304,7 @@
 
     if (btnNotMe) {
       btnNotMe.addEventListener('click', () => {
-        alert('Đi nhầm thì cũng phải chúc mừng sinh nhật Minh Anh cái đã chứ! 🥳');
+        alert('Äi nháº§m thÃ¬ cÅ©ng pháº£i chÃºc má»«ng sinh nháº­t Minh Anh cÃ¡i Ä‘Ã£ chá»©! ðŸ¥³');
       });
     }
 
@@ -1272,7 +1330,7 @@
           el.classList.remove('highlight');
           el.classList.toggle('main', i === 0);
         });
-        spinResult.textContent = 'Kết quả: chúc bạn may mắn lần sau nha, nhưng với tụi t thì bạn vẫn luôn là giải đặc biệt.';
+        spinResult.textContent = 'Káº¿t quáº£: chÃºc báº¡n may máº¯n láº§n sau nha, nhÆ°ng vá»›i tá»¥i t thÃ¬ báº¡n váº«n luÃ´n lÃ  giáº£i Ä‘áº·c biá»‡t.';
         if (typeof onResultShown === 'function') onResultShown();
       }, totalMs);
     }
@@ -1297,7 +1355,7 @@
       btnSpin.addEventListener('click', () => {
         btnSpin.disabled = true;
         if (finalSection) finalSection.classList.add('gift-revealed');
-        spinResult.textContent = 'Đang quay...';
+        spinResult.textContent = 'Äang quay...';
         startRewardCycle(() => {
           const explosionSound = document.getElementById('soundExplosion');
           if (explosionSound && explosionSound.src) {
@@ -1353,13 +1411,13 @@
 
     createStars(120);
 
-    // Khi mở từ file (file://) thì hiện dòng nhắc dùng link GitHub
+    // Khi má»Ÿ tá»« file (file://) thÃ¬ hiá»‡n dÃ²ng nháº¯c dÃ¹ng link GitHub
     (function checkFileOpen() {
       const notice = document.getElementById('fileOpenNotice');
       if (notice && window.location.protocol === 'file:') notice.classList.add('show');
     })();
 
-    // Custom cursor (circle + sparkle trail) – chỉ trên desktop, ẩn trên điện thoại
+    // Custom cursor (circle + sparkle trail) â€“ chá»‰ trÃªn desktop, áº©n trÃªn Ä‘iá»‡n thoáº¡i
     const cursorCircle = document.getElementById('cursorCircle');
     const cursorTrail = document.getElementById('cursorTrail');
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -1388,7 +1446,7 @@
     const easterContent = document.getElementById('easterContent');
     document.addEventListener('dblclick', () => {
       if (!easterOverlay) return;
-      const show = Math.random() < 0.5 ? '🏺' : 'Stay Slay!';
+      const show = Math.random() < 0.5 ? 'ðŸº' : 'Stay Slay!';
       if (easterContent) easterContent.textContent = show;
       easterOverlay.classList.add('show');
       setTimeout(() => easterOverlay.classList.remove('show'), 2200);
@@ -1408,3 +1466,10 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+

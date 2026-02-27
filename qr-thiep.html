@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR thiệp sinh nhật</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, sans-serif;
+      background: #f0f9ff;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 1.25rem;
+      color: #1e40af;
+      margin-bottom: 1rem;
+    }
+    .qr-wrap {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 1rem;
+    }
+    .qr-wrap img {
+      display: block;
+      width: 200px;
+      height: 200px;
+    }
+    .link {
+      font-size: 0.85rem;
+      color: #64748b;
+      word-break: break-all;
+      text-align: center;
+      max-width: 320px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quét QR để mở thiệp</h1>
+  <div class="qr-wrap">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fbuihonganhknight2901-lab.github.io%2FBirthday_MinhAnh%2F" alt="QR thiệp">
+  </div>
+  <p class="link">https://buihonganhknight2901-lab.github.io/Birthday_MinhAnh/</p>
+</body>
+</html>
