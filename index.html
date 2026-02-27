@@ -669,6 +669,29 @@
       position: relative;
     }
 
+    .letter-card-inline {
+      max-width: 100%;
+      margin-top: 0.6rem;
+      padding: 16px 20px;
+    }
+
+    .letter-card-inline .letter-body {
+      font-size: 0.82rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .letter-card-inline .letter-body p + p {
+      margin-top: 0.5rem;
+    }
+
+    .letter-card-inline .letter-header {
+      margin-bottom: 0.6rem;
+    }
+
+    .letter-card-inline .letter-sign {
+      margin-top: 0.3rem;
+    }
+
     .letter-card::before {
       content: "";
       position: absolute;
@@ -753,8 +776,33 @@
 
     .group-strip-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
+    }
+
+    .group-img-big {
+      grid-column: 1 / -1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .group-img-big img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .group-img-small {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .group-img-small img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
     }
 
     .group-slot {
@@ -848,28 +896,30 @@
 
         <section class="page page-ma" data-page="1">
           <div class="page-top">
-            <div class="letter-wrap">
-              <div class="letter-card">
-                <div class="letter-inner">
-                  <div class="letter-header">
-                    <div class="wax-seal">✉</div>
-                    <span class="letter-heading">Gửi Minh Anh,</span>
-                  </div>
-                  <div class="letter-body">
-                    <p>
-                      Tuổi 23, chúc bạn bước vào hành trình mới với tâm thế của một thiếu nữ tự tại, rạng rỡ theo cách mà một đóa hoa tự nở, chẳng cần đợi ai ngắm nhìn.
-                    </p>
-                    <p>
-                      Mong bạn luôn đủ bản lĩnh để bảo vệ sự kiêu hãnh vốn có, đủ tỉnh táo để khước từ những ồn ào không xứng đáng, và đủ sâu sắc để tận hưởng niềm vui theo cách riêng biệt nhất.
-                    </p>
-                    <p>
-                      Thế giới có thể xoay vần, nhưng mong bạn mãi giữ được cái "chất" thú vị và ánh sáng tự thân của mình. Cảm ơn vì đã là một phần thanh xuân đầy cảm hứng của chúng tôi. Cứ an nhiên mà tỏa sáng nhé :3.
-                    </p>
-                  </div>
-                  <div class="letter-sign">
-                    — Tụi tớ, hội Aquarius Trio
-                  </div>
+            <div class="media-stack">
+              <div class="media-main">
+                <img src="MAnh.jpg" alt="Minh Anh - hiện tại" />
+              </div>
+              <div class="media-badge">
+                <img src="Manhbe.jpg" alt="Minh Anh - bé" />
+              </div>
+            </div>
+            <div>
+              <p class="profile-label">Minh Anh · 01.02</p>
+              <p class="profile-name">Pearl Blue &amp; Silver</p>
+            </div>
+            <div class="letter-card letter-card-inline">
+              <div class="letter-inner">
+                <div class="letter-header">
+                  <div class="wax-seal">✉</div>
+                  <span class="letter-heading">Gửi Minh Anh,</span>
                 </div>
+                <div class="letter-body">
+                  <p>Tuổi 23, chúc bạn bước vào hành trình mới với tâm thế của một thiếu nữ tự tại, rạng rỡ theo cách mà một đóa hoa tự nở, chẳng cần đợi ai ngắm nhìn.</p>
+                  <p>Mong bạn luôn đủ bản lĩnh để bảo vệ sự kiêu hãnh vốn có, đủ tỉnh táo để khước từ những ồn ào không xứng đáng, và đủ sâu sắc để tận hưởng niềm vui theo cách riêng biệt nhất.</p>
+                  <p>Thế giới có thể xoay vần, nhưng mong bạn mãi giữ được cái "chất" thú vị và ánh sáng tự thân của mình. Cảm ơn vì đã là một phần thanh xuân đầy cảm hứng của chúng tôi. Cứ an nhiên mà tỏa sáng nhé :3.</p>
+                </div>
+                <div class="letter-sign">— Tụi tớ, hội Aquarius Trio</div>
               </div>
             </div>
           </div>
@@ -964,10 +1014,15 @@
                 <div class="group-strip">
                   <p class="group-strip-title">Ảnh nhóm tụi mình</p>
                   <div class="group-strip-grid">
-                    <div class="group-slot">Ảnh nhóm 1</div>
-                    <div class="group-slot">Ảnh nhóm 2</div>
-                    <div class="group-slot">Ảnh nhóm 3</div>
-                    <div class="group-slot">Ảnh nhóm 4</div>
+                    <div class="group-img-big">
+                      <img src="N1.jpg" alt="Ảnh nhóm 1" />
+                    </div>
+                    <div class="group-img-small">
+                      <img src="n2.jpg" alt="Ảnh nhóm 2" />
+                    </div>
+                    <div class="group-img-small">
+                      <img src="n3.jpg" alt="Ảnh nhóm 3" />
+                    </div>
                   </div>
                 </div>
               </div>
