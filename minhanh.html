@@ -318,16 +318,8 @@
 
     function typeText(el, text, speed, done) {
       if (!el) return;
-      el.textContent = "";
-      let idx = 0;
-      const id = setInterval(() => {
-        el.textContent += text.charAt(idx);
-        idx += 1;
-        if (idx >= text.length) {
-          clearInterval(id);
-          if (typeof done === "function") done();
-        }
-      }, speed);
+      el.textContent = text;
+      if (typeof done === "function") done();
     }
 
     function startStory() {
