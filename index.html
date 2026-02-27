@@ -921,9 +921,6 @@
                   <img src="b1.jpg" alt="Ảnh nhóm 1" />
                 </div>
                 <div class="group-img-small">
-                  <img src="n2.jpg" alt="Ảnh nhóm 2" />
-                </div>
-                <div class="group-img-small">
                   <img src="n3.jpg" alt="Ảnh nhóm 3" />
                 </div>
               </div>
@@ -1108,6 +1105,18 @@
 
     btnMusic?.addEventListener("click", () => {
       toggleMusic();
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initAudio();
+      if (bgSound && !musicOn) {
+        bgSound.play().then(() => {
+          musicOn = true;
+          if (musicLabel) musicLabel.textContent = "Tắt nhạc";
+        }).catch(() => {
+          // nếu bị chặn autoplay thì click đầu tiên vẫn sẽ bật nhạc
+        });
+      }
     });
 
     window.addEventListener("click", () => {
