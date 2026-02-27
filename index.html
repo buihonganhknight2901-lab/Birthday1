@@ -859,6 +859,7 @@
               <span class="step" data-step="2"></span>
               <span class="step" data-step="3"></span>
               <span class="step" data-step="4"></span>
+              <span class="step" data-step="5"></span>
             </span>
           </div>
         </div>
@@ -894,7 +895,39 @@
           </div>
         </section>
 
-        <section class="page page-ma" data-page="1">
+        <!-- PAGE 1: ẢNH NHÓM -->
+        <section class="page page-group" data-page="1">
+          <div class="page-top">
+            <div>
+              <p class="label-date">ẢNH NHÓM</p>
+              <p class="subtitle" style="max-width: 360px;">
+                Trước khi vào từng nhân vật, mời bạn lướt qua vài khoảnh khắc tập thể — những gương mặt vừa quen vừa “tai hại” nhất với ví tiền của nhau.
+              </p>
+            </div>
+            <div class="group-strip">
+              <p class="group-strip-title">Ảnh nhóm tụi mình</p>
+              <div class="group-strip-grid">
+                <div class="group-img-big">
+                  <img src="N1.jpg" alt="Ảnh nhóm 1" />
+                </div>
+                <div class="group-img-small">
+                  <img src="n2.jpg" alt="Ảnh nhóm 2" />
+                </div>
+                <div class="group-img-small">
+                  <img src="n3.jpg" alt="Ảnh nhóm 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-bottom">
+            <button class="btn-primary" data-next="2" data-sfx="whoosh">
+              <span>GẶP MINH ANH</span>
+              <span class="arrow">➜</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="page page-ma" data-page="2">
           <div class="page-top">
             <div class="media-stack">
               <div class="media-main">
@@ -924,14 +957,14 @@
             </div>
           </div>
           <div class="page-bottom">
-            <button class="btn-primary" data-next="2" data-sfx="scratch">
+            <button class="btn-primary" data-next="3" data-sfx="scratch">
               <span>GẶP THƠ VŨ (HỆ QUẬY)</span>
               <span class="arrow">➜</span>
             </button>
           </div>
         </section>
 
-        <section class="page page-tho" data-page="2">
+        <section class="page page-tho" data-page="3">
           <div class="page-top">
             <div class="media-stack">
               <div class="media-main">
@@ -950,14 +983,14 @@
             </p>
           </div>
           <div class="page-bottom">
-            <button class="btn-primary btn-primary--orange" data-next="3" data-sfx="siren">
+            <button class="btn-primary btn-primary--orange" data-next="4" data-sfx="siren">
               <span>GẶP CÔNG HUY (HYPE MC)</span>
               <span class="arrow">➜</span>
             </button>
           </div>
         </section>
 
-        <section class="page page-huy" data-page="3">
+        <section class="page page-huy" data-page="4">
           <div class="page-top">
             <div class="media-stack">
               <div class="media-main">
@@ -976,23 +1009,19 @@
             </p>
           </div>
           <div class="page-bottom">
-            <button class="btn-primary btn-primary--purple" data-next="4" data-sfx="bass">
+            <button class="btn-primary btn-primary--purple" data-next="5" data-sfx="bass">
               <span>XEM QUÀ TẶNG (CẤM SỐC)</span>
               <span>🎁</span>
             </button>
           </div>
         </section>
 
-        <section class="page page-final" data-page="4">
+        <section class="page page-final" data-page="5">
           <div class="page-top">
             <div>
               <div class="ticker">
                 <span>HA SAID · HA SAID · HA SAID · HA SAID · </span>
               </div>
-              <p class="ha-said">
-                <strong>HA SAID:</strong><br />
-                Nỗi buồn của các bạn là niềm vui cho ví tiền của chúng tôi. HA said =))))))
-              </p>
               <div class="gift-card">
                 <p class="gift-title">Vòng quay may mắn</p>
                 <div class="gift-wheel" id="giftWheel">
@@ -1008,23 +1037,8 @@
                   <div class="gift-label" data-index="3">Một chầu trà sữa</div>
                 </div>
                 <p class="gift-result" id="giftResult">
-                  Mặc định hệ thống hơi thiên vị "chúc bạn may mắn lần sau", nhưng cứ bấm <strong>QUAY NGAY</strong> cho đủ nghi thức nhé :))).
+                  Bấm <strong>QUAY NGAY</strong> để xem hôm nay là "chúc bạn may mắn lần sau" hay được cả một tràng vỗ tay rực rỡ nhé :))).
                 </p>
-
-                <div class="group-strip">
-                  <p class="group-strip-title">Ảnh nhóm tụi mình</p>
-                  <div class="group-strip-grid">
-                    <div class="group-img-big">
-                      <img src="N1.jpg" alt="Ảnh nhóm 1" />
-                    </div>
-                    <div class="group-img-small">
-                      <img src="n2.jpg" alt="Ảnh nhóm 2" />
-                    </div>
-                    <div class="group-img-small">
-                      <img src="n3.jpg" alt="Ảnh nhóm 3" />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -1039,9 +1053,7 @@
 
       <div class="overlay" id="overlayResult">
         <div class="overlay-inner">
-          <p class="overlay-title">HA SAID</p>
           <p class="overlay-text" id="overlayText">
-            Nỗi buồn của các bạn là niềm vui cho ví tiền của chúng tôi. HA said =))))))
           </p>
           <button class="btn-primary overlay-btn" id="btnOverlayClose">
             <span>OK LUÔN</span>
@@ -1131,12 +1143,12 @@
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      if (currentPage === 0 || currentPage === 1) {
+      if (currentPage <= 2) {
         createRipple(x, y);
-      } else if (currentPage === 2) {
+      } else if (currentPage === 3) {
         createRipple(x, y, "orange");
         createBolt(x, y);
-      } else if (currentPage === 3) {
+      } else if (currentPage === 4) {
         createRipple(x, y, "purple");
         createSpark(x, y);
       }
@@ -1243,7 +1255,8 @@
       if (!giftWheel || !giftResult) return;
       btnSpin.disabled = true;
 
-      const selectedIndex = 0;
+      const outcomeIndex = Math.random() < 0.5 ? 0 : 1;
+      const selectedIndex = outcomeIndex;
 
       const spins = 5;
       const segment = 360 / 4;
@@ -1265,8 +1278,8 @@
           giftResult.innerHTML = "Kết quả: <strong>" + chosen.textContent + "</strong>";
         }
 
-        if (selectedIndex === 3) {
-          overlayText.textContent = "WOW. Tỉ lệ 0.001% mà bạn cũng bấm trúng được. Vũ trụ chắc nợ bạn lắm đó.";
+        if (selectedIndex === 1) {
+          overlayText.textContent = "Chúc mừng, hôm nay bạn nhận được một tràng vỗ tay rực rỡ từ tụi tớ!";
         } else {
           overlayText.textContent = "Nỗi buồn của các bạn là niềm vui cho ví tiền của chúng tôi. HA said =))))))";
         }
