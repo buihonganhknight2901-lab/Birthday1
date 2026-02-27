@@ -6,12 +6,14 @@
   <title>Thiệp Công Huy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e1b4b, #020617 60%, #000 100%);
+      background:
+        radial-gradient(circle at 0% 0%, #a855f7, transparent 55%),
+        radial-gradient(circle at 100% 100%, #facc15, #fef3c7 60%, #020617 100%);
       color: #e5e7eb;
       min-height: 100vh;
       min-height: 100dvh;
@@ -20,72 +22,336 @@
       align-items: center;
       padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     }
+
     .card {
       width: 100%;
-      max-width: 420px;
-      border-radius: 24px;
-      padding: 1.6rem 1.4rem 1.8rem;
-      background: radial-gradient(circle at top left, rgba(168, 85, 247, 0.4), transparent 55%), #020617;
-      border: 1px solid rgba(167, 139, 250, 0.7);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 1);
+      max-width: 430px;
+      border-radius: 28px;
+      padding: 1.6rem 1.4rem 1.9rem;
+      background: radial-gradient(circle at top, #020617, #020617 60%, #111827 100%);
+      border: 1px solid rgba(250, 204, 21, 0.5);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
     }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+
     .tag {
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      opacity: 0.75;
-      margin-bottom: 0.6rem;
+      color: #facc15;
     }
-    .photo {
-      border-radius: 20px;
+
+    .play {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(250, 204, 21, 0.7);
+      background: #0f172a;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      color: #facc15;
+    }
+
+    .play-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    .screens {
+      position: relative;
+      min-height: 320px;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      justify-content: center;
+    }
+
+    .screen.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .photo-main {
+      border-radius: 22px;
       overflow: hidden;
-      border: 2px solid rgba(251, 191, 36, 0.9);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 1);
-      margin-bottom: 1rem;
+      border: 2px solid rgba(250, 204, 21, 0.9);
+      box-shadow: 0 22px 50px rgba(250, 204, 21, 0.5);
       position: relative;
     }
-    .photo img { width: 100%; display: block; object-fit: cover; }
+
+    .photo-main img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
     .badge-baby {
-      position: absolute;
-      bottom: 10px;
-      right: 12px;
-      width: 72px;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      border: 2px solid rgba(96, 165, 250, 0.9);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 1);
-      transform: rotate(5deg);
+      border: 1px solid rgba(96, 165, 250, 0.9);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      margin-bottom: 1.1rem;
     }
-    .badge-baby img { width: 100%; display: block; object-fit: cover; }
-    .title {
+
+    .badge-baby img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .story-text {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      text-align: center;
+      color: #e5e7eb;
+    }
+
+    .story-line {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .story-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .letter {
+      position: relative;
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 1.2rem 1.3rem 1.6rem;
+      border: 1px solid rgba(139, 92, 246, 0.7);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 1);
+    }
+
+    .letter::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 14px;
+      border: 1px dashed rgba(129, 140, 248, 0.8);
+      pointer-events: none;
+    }
+
+    .letter-title {
       font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.08em;
+      font-size: 0.98rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+      color: #facc15;
     }
-    .body {
+
+    .letter-body {
       font-size: 0.9rem;
       line-height: 1.7;
     }
-    .body p + p { margin-top: 0.6rem; }
+
+    .letter-body p + p { margin-top: 0.6rem; }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      text-align: center;
+      color: #e5e7eb;
+    }
+
+    .spotlight {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.4), transparent 60%),
+        radial-gradient(circle at 0% 100%, rgba(147, 51, 234, 0.35), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.3), transparent 60%);
+      opacity: 0.4;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <p class="tag">27.02 · Công Huy</p>
-    <div class="photo">
-      <img src="huy.jpg" alt="Công Huy" />
-      <div class="badge-baby">
-        <img src="huybe.jpg" alt="Công Huy bé" />
+  <div class="card" id="card">
+    <div class="spotlight"></div>
+    <div class="header">
+      <div>
+        <div class="tag">27.02 · Công Huy</div>
       </div>
+      <button class="play" id="btnPlay">
+        <span class="play-dot"></span>
+        <span>Cross Over</span>
+      </button>
     </div>
-    <h1 class="title">Hype MC của tụi tớ</h1>
-    <div class="body">
-      <p>Chúc bạn tuổi 23 cầm mic ngày càng chắc, job tới tấp và luôn giữ được cái nhiệt huyết này..</p>
-      <p>Cảm ơn vì đã luôn khuấy động mọi cuộc vui của tụi tớ, từ những buổi chill nhẹ đến những hôm cháy banh nóc.</p>
-      <p>Cháy hết mình bạn nhé =))). Khi nào mệt thì nhớ quay lại đây, tụi tớ vẫn ở đây ngồi nghe bạn kể chuyện.</p>
+
+    <div class="screens">
+      <!-- Trang 1: Huy bé -->
+      <section class="screen active" data-screen="0">
+        <div class="photo-main">
+          <img src="huybe.jpg" alt="Công Huy bé" />
+        </div>
+        <div class="story-text">
+          <p id="pastLine1" class="story-line"></p>
+          <p id="pastLine2" class="story-line"></p>
+        </div>
+      </section>
+
+      <!-- Trang 2: Huy cầm mic -->
+      <section class="screen" data-screen="1">
+        <div class="story-text">
+          <p id="nowLine" class="story-line"></p>
+        </div>
+        <div class="photo-main" id="nowPhoto" style="opacity: 0; transition: opacity 0.6s ease;">
+          <img src="huy.jpg" alt="Công Huy" />
+        </div>
+      </section>
+
+      <!-- Trang 3: Lời chúc -->
+      <section class="screen" data-screen="2">
+        <div class="badge-baby">
+          <img src="huybe.jpg" alt="Công Huy bé" />
+        </div>
+        <div class="letter">
+          <div class="letter-title">Gửi Hype MC của tụi tớ,</div>
+          <div class="letter-body">
+            <p>Chúc bạn tuổi 23 cầm mic ngày càng chắc, job tới tấp và luôn giữ được cái nhiệt huyết này..</p>
+            <p>Cảm ơn vì đã luôn khuấy động mọi cuộc vui của tụi tớ, từ những buổi chill nhẹ đến những hôm cháy banh nóc.</p>
+            <p>Cháy hết mình bạn nhé =))). Khi nào mệt thì nhớ quay lại đây, tụi tớ vẫn ở đây ngồi nghe bạn kể chuyện.</p>
+          </div>
+        </div>
+      </section>
     </div>
+
+    <p class="footer" id="hintText">Chạm vào thiệp để bật sân khấu & bật nhạc.</p>
   </div>
+
+  <audio id="bg" src="Cross Over.mp3" preload="auto" loop></audio>
+  <script>
+    const screens = Array.from(document.querySelectorAll(".screen"));
+    const card = document.getElementById("card");
+    const bg = document.getElementById("bg");
+    const btnPlay = document.getElementById("btnPlay");
+    const hintText = document.getElementById("hintText");
+
+    let current = 0;
+    let started = false;
+    let musicOn = false;
+
+    function showScreen(index) {
+      current = Math.max(0, Math.min(index, screens.length - 1));
+      screens.forEach((s, i) => {
+        s.classList.toggle("active", i === current);
+      });
+    }
+
+    async function ensureMusic() {
+      if (!bg || musicOn) return;
+      try {
+        await bg.play();
+        musicOn = true;
+      } catch (e) {}
+    }
+
+    function typeText(el, text, speed, done) {
+      if (!el) return;
+      el.textContent = "";
+      let idx = 0;
+      const id = setInterval(() => {
+        el.textContent += text.charAt(idx);
+        idx += 1;
+        if (idx >= text.length) {
+          clearInterval(id);
+          if (typeof done === "function") done();
+        }
+      }, speed);
+    }
+
+    function startStory() {
+      if (started) return;
+      started = true;
+      if (hintText) hintText.textContent = "Đang warm-up cho bạn nghe...";
+      ensureMusic();
+
+      const pastLine1 = document.getElementById("pastLine1");
+      const pastLine2 = document.getElementById("pastLine2");
+      const nowLine = document.getElementById("nowLine");
+      const nowPhoto = document.getElementById("nowPhoto");
+
+      const text1 = "\"Ngày xưa, có một cậu nhóc giơ mic lên chỉ để hát nhép.\"";
+      const text2 = "Ai ngờ vài năm sau lại đứng hype cả đám đông.";
+      const textNow = "\"Bây giờ mỗi khi bạn cầm mic, tụi tớ biết là buổi tối đó sẽ không còn yên tĩnh nữa.\"";
+
+      typeText(pastLine1, text1, 45, () => {
+        setTimeout(() => {
+          typeText(pastLine2, text2, 50, () => {
+            setTimeout(() => {
+              showScreen(1);
+              setTimeout(() => {
+                typeText(nowLine, textNow, 55, () => {
+                  setTimeout(() => {
+                    if (nowLine) nowLine.style.opacity = "0";
+                    setTimeout(() => {
+                      if (nowPhoto) nowPhoto.style.opacity = "1";
+                    }, 400);
+                  }, 900);
+                });
+              }, 400);
+            }, 600);
+          });
+        }, 600);
+      });
+
+      setTimeout(() => {
+        showScreen(2);
+        if (hintText) hintText.textContent = "Cháy hết mình nha, MC :3";
+      }, 11500);
+    }
+
+    card?.addEventListener("click", () => {
+      startStory();
+    });
+
+    btnPlay?.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      if (!bg) return;
+      try {
+        if (!musicOn) {
+          await bg.play();
+          musicOn = true;
+        } else {
+          bg.pause();
+          musicOn = false;
+        }
+      } catch {}
+    });
+  </script>
 </body>
 </html>
