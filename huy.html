@@ -6,38 +6,32 @@
   <title>Thiệp Công Huy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, #a855f7, transparent 55%),
-        radial-gradient(circle at 100% 100%, #facc15, #fef3c7 60%, #020617 100%);
+        radial-gradient(circle at 0% 0%, #a855f7, transparent 50%),
+        radial-gradient(circle at 100% 100%, #facc15, #020617 70%);
       color: #e5e7eb;
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: env(safe-area-inset-top, 0px)
-               env(safe-area-inset-right, 0px)
-               env(safe-area-inset-bottom, 0px)
-               env(safe-area-inset-left, 0px);
+      padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
     }
 
     .card {
       width: 100%;
-      max-width: 430px;
-      border-radius: 28px;
-      padding: 1.6rem 1.4rem 1.9rem;
-      background: radial-gradient(circle at top, #020617, #020617 60%, #111827 100%);
-      border: 1px solid rgba(250, 204, 21, 0.5);
-      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.9);
+      max-width: 100%;
+      height: 100%;
+      min-height: 100dvh;
+      padding: max(env(safe-area-inset-top), 1rem) max(env(safe-area-inset-right), 1rem) max(env(safe-area-inset-bottom), 1rem) max(env(safe-area-inset-left), 1rem);
+      background: radial-gradient(circle at top, #020617, #111827 60%, #1e1b4b 100%);
+      border: 1px solid rgba(250, 204, 21, 0.35);
       position: relative;
       overflow: hidden;
     }
@@ -46,190 +40,162 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
     }
 
-    .tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #facc15;
-    }
-
-    .title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 0.2rem;
-      color: #fbbf24;
-    }
-
+    .tag { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #facc15; }
     .play {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      padding: 0.35rem 0.9rem;
-      border: 1px solid rgba(250, 204, 21, 0.7);
-      background: #0f172a;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      color: #facc15;
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 999px; padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(250, 204, 21, 0.6);
+      background: #0f172a; cursor: pointer; color: #facc15;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .play-dot { width: 8px; height: 8px; border-radius: 999px; background: #22c55e; }
+
+    .screens {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      padding: 4.5rem 0 1rem;
     }
 
-    .play-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    .content {
+    .screen {
+      position: absolute;
+      inset: 4.5rem 0 1rem 0;
+      left: 0; right: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      gap: 1rem;
+      overflow-y: auto;
     }
+    .screen.active { opacity: 1; pointer-events: auto; }
 
-    .photo-main,
-    .photo-baby {
-      border-radius: 22px;
+    .photo-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
       overflow: hidden;
-      position: relative;
+      border: 2px solid rgba(250, 204, 21, 0.5);
+      box-shadow: 0 16px 48px rgba(15, 23, 42, 0.8);
     }
-
-    .photo-main {
-      border: 2px solid rgba(250, 204, 21, 0.9);
-      box-shadow: 0 22px 50px rgba(250, 204, 21, 0.5);
-    }
-
-    .photo-baby {
-      border-radius: 18px;
-      border: 1px solid rgba(96, 165, 250, 0.9);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.9);
-    }
-
-    .photo-main img,
-    .photo-baby img {
+    .photo-wrap img {
       width: 100%;
       height: auto;
-      display: block;
+      max-height: 55vh;
       object-fit: cover;
+      display: block;
+    }
+    .photo-wrap.main-wrap { border-color: rgba(250, 204, 21, 0.9); }
+
+    .story-text {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      text-align: center;
+      color: #e5e7eb;
+      padding: 0 0.5rem;
     }
 
     .letter {
-      position: relative;
       background: #020617;
       color: #e5e7eb;
       border-radius: 18px;
-      padding: 1.2rem 1.3rem 1.3rem;
-      border: 1px solid rgba(139, 92, 246, 0.7);
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 1);
+      padding: 1.25rem 1.2rem;
+      border: 1px solid rgba(139, 92, 246, 0.6);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.9);
     }
+    .letter-title { font-family: "Space Grotesk", sans-serif; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; color: #facc15; }
+    .letter-body { font-size: 0.95rem; line-height: 1.75; }
 
-    .letter::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 14px;
-      border: 1px dashed rgba(129, 140, 248, 0.8);
-      pointer-events: none;
-    }
-
-    .letter-title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 0.98rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      color: #facc15;
-    }
-
-    .letter-body {
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    .footer {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      opacity: 0.8;
-      text-align: center;
-      color: #e5e7eb;
-    }
-
-    .spotlight {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.4), transparent 60%),
-        radial-gradient(circle at 0% 100%, rgba(147, 51, 234, 0.35), transparent 60%),
-        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.3), transparent 60%);
-      opacity: 0.45;
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
+    .footer { position: absolute; bottom: 0.5rem; left: 0; right: 0; font-size: 0.78rem; opacity: 0.85; text-align: center; color: #94a3b8; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="spotlight"></div>
+  <div class="card" id="card">
     <div class="header">
-      <div>
-        <div class="tag">27.02 · Công Huy</div>
-        <div class="title">Hype MC Birthday</div>
-      </div>
-      <button class="play" id="btnPlay">
-        <span class="play-dot"></span>
-        <span>Bật nhạc</span>
-      </button>
+      <div class="tag">27.02 · Công Huy</div>
+      <button class="play" id="btnPlay"><span class="play-dot"></span><span>Cross Over</span></button>
     </div>
 
-    <div class="content">
-      <div class="photo-main">
-        <img src="huy.jpg" alt="Công Huy" />
-      </div>
-
-      <div class="photo-baby">
-        <img src="huybe.jpg" alt="Công Huy bé" />
-      </div>
-
-      <div class="letter">
-        <div class="letter-title">Gửi Công Huy,</div>
-        <div class="letter-body">
-          <p>Chúc bạn tuổi 23 cầm mic ngày càng chắc, job tới tấp và luôn giữ được cái nhiệt huyết này..</p>
+    <div class="screens">
+      <section class="screen active" data-screen="0">
+        <div class="photo-wrap">
+          <img src="huybe.jpg" alt="Công Huy bé" />
         </div>
-      </div>
+        <div class="story-text">
+          <p>"Ngày xưa, có một cậu nhóc giơ mic lên chỉ để hát nhép."</p>
+          <p>Ai ngờ vài năm sau lại đứng hype cả đám đông.</p>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="1">
+        <div class="story-text">
+          <p>"Bây giờ mỗi khi bạn cầm mic, tụi tớ biết là buổi tối đó sẽ không còn yên tĩnh nữa."</p>
+        </div>
+        <div class="photo-wrap main-wrap">
+          <img src="huy.jpg" alt="Công Huy" />
+        </div>
+      </section>
+
+      <section class="screen" data-screen="2">
+        <div class="letter">
+          <div class="letter-title">Gửi Công Huy,</div>
+          <div class="letter-body">
+            <p>Chúc bạn tuổi 23 cầm mic ngày càng chắc, job tới tấp và luôn giữ được cái nhiệt huyết này..</p>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <p class="footer">Nhấn nút bên trên nếu muốn nghe "Cross Over".</p>
+    <p class="footer" id="hint">Chạm vào thiệp để bật sân khấu & bật nhạc.</p>
   </div>
 
   <audio id="bg" src="Cross Over.mp3" preload="auto" loop></audio>
   <script>
-    const btnPlay = document.getElementById("btnPlay");
-    const bg = document.getElementById("bg");
-    let musicOn = false;
+    var screens = document.querySelectorAll(".screen");
+    var card = document.getElementById("card");
+    var bg = document.getElementById("bg");
+    var btnPlay = document.getElementById("btnPlay");
+    var hint = document.getElementById("hint");
+    var current = 0;
+    var started = false;
+    var musicOn = false;
 
-    btnPlay?.addEventListener("click", async () => {
+    function showScreen(i) {
+      current = Math.max(0, Math.min(i, screens.length - 1));
+      screens.forEach(function(s, j) { s.classList.toggle("active", j === current); });
+    }
+
+    function ensureMusic() {
+      if (!bg || musicOn) return;
+      bg.play().then(function() { musicOn = true; }).catch(function() {});
+    }
+
+    function startStory() {
+      if (started) return;
+      started = true;
+      if (hint) hint.textContent = "Đang warm-up...";
+      ensureMusic();
+
+      setTimeout(function() { showScreen(1); }, 4500);
+      setTimeout(function() {
+        showScreen(2);
+        if (hint) hint.textContent = "Cháy hết mình nha, MC :3";
+      }, 9500);
+    }
+
+    card.addEventListener("click", startStory);
+    btnPlay.addEventListener("click", function(e) {
+      e.stopPropagation();
       if (!bg) return;
-      try {
-        if (!musicOn) {
-          await bg.play();
-          musicOn = true;
-          btnPlay.querySelector("span:nth-child(2)").textContent = "Tắt nhạc";
-        } else {
-          bg.pause();
-          musicOn = false;
-          btnPlay.querySelector("span:nth-child(2)").textContent = "Bật nhạc";
-        }
-      } catch (e) {
-        // nếu bị chặn autoplay thì bỏ qua
-      }
+      if (!musicOn) { bg.play().then(function() { musicOn = true; }); }
+      else { bg.pause(); musicOn = false; }
     });
   </script>
 </body>
 </html>
-
