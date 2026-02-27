@@ -6,9 +6,13 @@
   <title>Thiệp Công Huy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
@@ -20,7 +24,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+      padding: env(safe-area-inset-top, 0px)
+               env(safe-area-inset-right, 0px)
+               env(safe-area-inset-bottom, 0px)
+               env(safe-area-inset-left, 0px);
     }
 
     .card {
@@ -49,6 +56,14 @@
       color: #facc15;
     }
 
+    .title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      color: #fbbf24;
+    }
+
     .play {
       font-size: 0.75rem;
       letter-spacing: 0.12em;
@@ -72,75 +87,36 @@
       box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
     }
 
-    .screens {
-      position: relative;
-      min-height: 320px;
-    }
-
-    .screen {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(12px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    .content {
       display: flex;
       flex-direction: column;
       gap: 1.1rem;
-      justify-content: center;
     }
 
-    .screen.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .photo-main {
+    .photo-main,
+    .photo-baby {
       border-radius: 22px;
       overflow: hidden;
-      border: 2px solid rgba(250, 204, 21, 0.9);
-      box-shadow: 0 22px 50px rgba(250, 204, 21, 0.5);
       position: relative;
     }
 
-    .photo-main img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+    .photo-main {
+      border: 2px solid rgba(250, 204, 21, 0.9);
+      box-shadow: 0 22px 50px rgba(250, 204, 21, 0.5);
     }
 
-    .badge-baby {
+    .photo-baby {
       border-radius: 18px;
-      overflow: hidden;
       border: 1px solid rgba(96, 165, 250, 0.9);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
-      margin-bottom: 1.1rem;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.9);
     }
 
-    .badge-baby img {
+    .photo-main img,
+    .photo-baby img {
       width: 100%;
+      height: auto;
       display: block;
       object-fit: cover;
-    }
-
-    .story-text {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 0.96rem;
-      line-height: 1.7;
-      text-align: center;
-      color: #e5e7eb;
-    }
-
-    .story-line {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .story-line.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .letter {
@@ -148,7 +124,7 @@
       background: #020617;
       color: #e5e7eb;
       border-radius: 18px;
-      padding: 1.2rem 1.3rem 1.6rem;
+      padding: 1.2rem 1.3rem 1.3rem;
       border: 1px solid rgba(139, 92, 246, 0.7);
       box-shadow: 0 18px 50px rgba(15, 23, 42, 1);
     }
@@ -176,8 +152,6 @@
       line-height: 1.7;
     }
 
-    .letter-body p + p { margin-top: 0.6rem; }
-
     .footer {
       margin-top: 1rem;
       font-size: 0.8rem;
@@ -193,155 +167,69 @@
         radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.4), transparent 60%),
         radial-gradient(circle at 0% 100%, rgba(147, 51, 234, 0.35), transparent 60%),
         radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.3), transparent 60%);
-      opacity: 0.4;
+      opacity: 0.45;
       pointer-events: none;
       mix-blend-mode: screen;
     }
   </style>
 </head>
 <body>
-  <div class="card" id="card">
+  <div class="card">
     <div class="spotlight"></div>
     <div class="header">
       <div>
         <div class="tag">27.02 · Công Huy</div>
+        <div class="title">Hype MC Birthday</div>
       </div>
       <button class="play" id="btnPlay">
         <span class="play-dot"></span>
-        <span>Cross Over</span>
+        <span>Bật nhạc</span>
       </button>
     </div>
 
-    <div class="screens">
-      <!-- Trang 1: Huy bé -->
-      <section class="screen active" data-screen="0">
-        <div class="photo-main">
-          <img src="huybe.jpg" alt="Công Huy bé" />
-        </div>
-        <div class="story-text">
-          <p id="pastLine1" class="story-line"></p>
-          <p id="pastLine2" class="story-line"></p>
-        </div>
-      </section>
+    <div class="content">
+      <div class="photo-main">
+        <img src="huy.jpg" alt="Công Huy" />
+      </div>
 
-      <!-- Trang 2: Huy cầm mic -->
-      <section class="screen" data-screen="1">
-        <div class="story-text">
-          <p id="nowLine" class="story-line"></p>
-        </div>
-        <div class="photo-main" id="nowPhoto" style="opacity: 0; transition: opacity 0.6s ease;">
-          <img src="huy.jpg" alt="Công Huy" />
-        </div>
-      </section>
+      <div class="photo-baby">
+        <img src="huybe.jpg" alt="Công Huy bé" />
+      </div>
 
-      <!-- Trang 3: Lời chúc -->
-      <section class="screen" data-screen="2">
-        <div class="badge-baby">
-          <img src="huybe.jpg" alt="Công Huy bé" />
+      <div class="letter">
+        <div class="letter-title">Gửi Công Huy,</div>
+        <div class="letter-body">
+          <p>Chúc bạn tuổi 23 cầm mic ngày càng chắc, job tới tấp và luôn giữ được cái nhiệt huyết này..</p>
         </div>
-        <div class="letter">
-          <div class="letter-title">Gửi Hype MC của tụi tớ,</div>
-          <div class="letter-body">
-            <p>Chúc bạn tuổi 23 cầm mic ngày càng chắc, job tới tấp và luôn giữ được cái nhiệt huyết này..</p>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
 
-    <p class="footer" id="hintText">Chạm vào thiệp để bật sân khấu & bật nhạc.</p>
+    <p class="footer">Nhấn nút bên trên nếu muốn nghe "Cross Over".</p>
   </div>
 
   <audio id="bg" src="Cross Over.mp3" preload="auto" loop></audio>
   <script>
-    const screens = Array.from(document.querySelectorAll(".screen"));
-    const card = document.getElementById("card");
-    const bg = document.getElementById("bg");
     const btnPlay = document.getElementById("btnPlay");
-    const hintText = document.getElementById("hintText");
-
-    let current = 0;
-    let started = false;
+    const bg = document.getElementById("bg");
     let musicOn = false;
 
-    function showScreen(index) {
-      current = Math.max(0, Math.min(index, screens.length - 1));
-      screens.forEach((s, i) => {
-        s.classList.toggle("active", i === current);
-      });
-    }
-
-    async function ensureMusic() {
-      if (!bg || musicOn) return;
-      try {
-        await bg.play();
-        musicOn = true;
-      } catch (e) {}
-    }
-
-    function typeText(el, text, speed, done) {
-      if (!el) return;
-      el.textContent = text;
-      if (typeof done === "function") done();
-    }
-
-    function startStory() {
-      if (started) return;
-      started = true;
-      if (hintText) hintText.textContent = "Đang warm-up cho bạn nghe...";
-      ensureMusic();
-
-      const pastLine1 = document.getElementById("pastLine1");
-      const pastLine2 = document.getElementById("pastLine2");
-      const nowLine = document.getElementById("nowLine");
-      const nowPhoto = document.getElementById("nowPhoto");
-
-      const text1 = "\"Ngày xưa, có một cậu nhóc giơ mic lên chỉ để hát nhép.\"";
-      const text2 = "Ai ngờ vài năm sau lại đứng hype cả đám đông.";
-      const textNow = "\"Bây giờ mỗi khi bạn cầm mic, tụi tớ biết là buổi tối đó sẽ không còn yên tĩnh nữa.\"";
-
-      typeText(pastLine1, text1, 45, () => {
-        setTimeout(() => {
-          typeText(pastLine2, text2, 50, () => {
-            setTimeout(() => {
-              showScreen(1);
-              setTimeout(() => {
-                typeText(nowLine, textNow, 55, () => {
-                  setTimeout(() => {
-                    if (nowLine) nowLine.style.opacity = "0";
-                    setTimeout(() => {
-                      if (nowPhoto) nowPhoto.style.opacity = "1";
-                    }, 400);
-                  }, 900);
-                });
-              }, 400);
-            }, 600);
-          });
-        }, 600);
-      });
-
-      setTimeout(() => {
-        showScreen(2);
-        if (hintText) hintText.textContent = "Cháy hết mình nha, MC :3";
-      }, 11500);
-    }
-
-    card?.addEventListener("click", () => {
-      startStory();
-    });
-
-    btnPlay?.addEventListener("click", async (e) => {
-      e.stopPropagation();
+    btnPlay?.addEventListener("click", async () => {
       if (!bg) return;
       try {
         if (!musicOn) {
           await bg.play();
           musicOn = true;
+          btnPlay.querySelector("span:nth-child(2)").textContent = "Tắt nhạc";
         } else {
           bg.pause();
           musicOn = false;
+          btnPlay.querySelector("span:nth-child(2)").textContent = "Bật nhạc";
         }
-      } catch {}
+      } catch (e) {
+        // nếu bị chặn autoplay thì bỏ qua
+      }
     });
   </script>
 </body>
 </html>
+

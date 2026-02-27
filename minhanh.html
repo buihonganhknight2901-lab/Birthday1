@@ -6,31 +6,38 @@
   <title>Thiệp Minh Anh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, #fed7e2, transparent 55%),
-        radial-gradient(circle at 100% 100%, #fef9c3, #fef3c7 60%, #fee2e2 100%);
+        radial-gradient(circle at 0% 0%, #fbcfe8, transparent 55%),
+        radial-gradient(circle at 100% 100%, #e0f2fe, #fef3c7 60%, #fee2e2 100%);
       color: #111827;
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+      padding: env(safe-area-inset-top, 0px)
+               env(safe-area-inset-right, 0px)
+               env(safe-area-inset-bottom, 0px)
+               env(safe-area-inset-left, 0px);
     }
 
     .card {
       width: 100%;
       max-width: 430px;
       border-radius: 28px;
-      padding: 1.6rem 1.4rem 1.8rem;
-      background: linear-gradient(145deg, #fff7ed, #fefce8);
-      border: 1px solid rgba(248, 113, 113, 0.4);
-      box-shadow: 0 22px 60px rgba(248, 113, 113, 0.35);
+      padding: 1.6rem 1.4rem 1.9rem;
+      background: linear-gradient(145deg, #fff7ed, #fdf2ff);
+      border: 1px solid rgba(236, 72, 153, 0.4);
+      box-shadow: 0 22px 60px rgba(236, 72, 153, 0.35);
       position: relative;
       overflow: hidden;
     }
@@ -46,7 +53,15 @@
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #b91c1c;
+      color: #be123c;
+    }
+
+    .title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      color: #9f1239;
     }
 
     .play {
@@ -55,13 +70,13 @@
       text-transform: uppercase;
       border-radius: 999px;
       padding: 0.35rem 0.9rem;
-      border: 1px solid rgba(248, 113, 113, 0.7);
-      background: #fee2e2;
+      border: 1px solid rgba(236, 72, 153, 0.7);
+      background: #fdf2f8;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       cursor: pointer;
-      color: #7f1d1d;
+      color: #9d174d;
     }
 
     .play-dot {
@@ -72,40 +87,34 @@
       box-shadow: 0 0 10px rgba(248, 113, 113, 0.9);
     }
 
-    .screens {
-      position: relative;
-      min-height: 320px;
-    }
-
-    .screen {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(12px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    .content {
       display: flex;
       flex-direction: column;
       gap: 1.1rem;
-      justify-content: center;
     }
 
-    .screen.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .photo-main {
+    .photo-main,
+    .photo-baby {
       border-radius: 22px;
       overflow: hidden;
-      border: 2px solid rgba(248, 113, 113, 0.9);
-      box-shadow: 0 18px 40px rgba(248, 113, 113, 0.45);
       position: relative;
     }
 
-    .photo-main img {
+    .photo-main {
+      border: 2px solid rgba(236, 72, 153, 0.9);
+      box-shadow: 0 20px 50px rgba(236, 72, 153, 0.45);
+    }
+
+    .photo-baby {
+      border-radius: 18px;
+      border: 1px solid rgba(236, 72, 153, 0.5);
+      box-shadow: 0 14px 36px rgba(248, 113, 113, 0.38);
+    }
+
+    .photo-main img,
+    .photo-baby img {
       width: 100%;
+      height: auto;
       display: block;
       object-fit: cover;
     }
@@ -114,41 +123,8 @@
       position: absolute;
       top: 10px;
       left: 12px;
-      font-size: 1.4rem;
-      text-shadow: 0 0 14px rgba(248, 113, 113, 0.9);
-    }
-
-    .photo-baby {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(248, 113, 113, 0.7);
-      box-shadow: 0 10px 28px rgba(248, 113, 113, 0.35);
-      margin-bottom: 1.1rem;
-    }
-
-    .photo-baby img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .story-text {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 0.96rem;
-      line-height: 1.7;
-      text-align: center;
-      color: #7c2d12;
-    }
-
-    .story-line {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .story-line.visible {
-      opacity: 1;
-      transform: translateY(0);
+      font-size: 1.6rem;
+      text-shadow: 0 0 16px rgba(244, 114, 182, 0.9);
     }
 
     .letter {
@@ -157,9 +133,8 @@
       color: #111827;
       border-radius: 18px;
       padding: 1.2rem 1.3rem 1.3rem;
-      border: 1px solid rgba(248, 113, 113, 0.5);
+      border: 1px solid rgba(248, 150, 150, 0.6);
       box-shadow: 0 16px 40px rgba(248, 113, 113, 0.35);
-      filter: contrast(0.95) brightness(1.05);
     }
 
     .letter::before {
@@ -177,6 +152,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 0.8rem;
+      color: #9f1239;
     }
 
     .letter-body {
@@ -185,517 +161,77 @@
       line-height: 1.8;
     }
 
-    .letter-body p + p { margin-top: 0.7rem; }
+    .letter-body p + p {
+      margin-top: 0.7rem;
+    }
 
     .footer {
       margin-top: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       opacity: 0.8;
       text-align: center;
       color: #4b5563;
     }
-
-    .cake {
-      position: absolute;
-      bottom: -6px;
-      right: 14px;
-      width: 72px;
-      height: 40px;
-      border-radius: 16px 16px 10px 10px;
-      background: linear-gradient(to top, #f97316, #fed7aa);
-      box-shadow: 0 8px 18px rgba(248, 113, 113, 0.65);
-      overflow: hidden;
-    }
-
-    .cake::before {
-      content: "";
-      position: absolute;
-      top: -16px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 16px;
-      background: #facc15;
-      box-shadow: 0 0 6px rgba(250, 204, 21, 0.8);
-    }
-
-    .cake::after {
-      content: "";
-      position: absolute;
-      top: -22px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #fee2e2;
-      box-shadow: 0 0 12px rgba(248, 250, 252, 0.95);
-    }
   </style>
 </head>
 <body>
-  <div class="card" id="card">
+  <div class="card">
     <div class="header">
       <div>
         <div class="tag">01.02 · Minh Anh</div>
+        <div class="title">Happy 23rd Birthday</div>
       </div>
       <button class="play" id="btnPlay">
         <span class="play-dot"></span>
-        <span>River Flows In You</span>
+        <span>Bật nhạc</span>
       </button>
     </div>
 
-    <div class="screens">
-      <!-- Trang 1: Chuyện ngày xưa -->
-      <section class="screen active" data-screen="0">
-        <div class="photo-main">
-          <img src="Manhbe.jpg" alt="Minh Anh bé" />
-        </div>
-        <div class="story-text">
-          <p id="pastLine1" class="story-line"></p>
-          <p id="pastLine2" class="story-line"></p>
-        </div>
-      </section>
+    <div class="content">
+      <div class="photo-main">
+        <span class="crown">👑</span>
+        <img src="MAnh.jpg" alt="Minh Anh" />
+      </div>
 
-      <!-- Trang 2: Chuyện bây giờ -->
-      <section class="screen" data-screen="1">
-        <div class="story-text">
-          <p id="nowLine" class="story-line"></p>
-        </div>
-        <div class="photo-main" id="nowPhoto" style="opacity: 0; transition: opacity 0.6s ease;">
-          <span class="crown">👑</span>
-          <img src="MAnh.jpg" alt="Minh Anh" />
-        </div>
-      </section>
+      <div class="photo-baby">
+        <img src="Manhbe.jpg" alt="Minh Anh bé" />
+      </div>
 
-      <!-- Trang 3: Lời chúc -->
-      <section class="screen" data-screen="2">
-        <div class="photo-baby">
-          <img src="Manhbe.jpg" alt="Minh Anh bé" />
+      <div class="letter">
+        <div class="letter-title">Gửi Minh Anh,</div>
+        <div class="letter-body">
+          <p>Tuổi 23, chúc bạn bước vào hành trình mới với tâm thế của một thiếu nữ tự tại, rạng rỡ theo cách mà một đóa hoa tự nở, chẳng cần đợi ai ngắm nhìn.</p>
+          <p>Mong bạn luôn đủ bản lĩnh để bảo vệ sự kiêu hãnh vốn có, đủ tỉnh táo để khước từ những ồn ào không xứng đáng, và đủ sâu sắc để tận hưởng niềm vui theo cách riêng biệt nhất.</p>
         </div>
-        <div class="letter">
-          <div class="letter-title">Gửi Minh Anh,</div>
-          <div class="letter-body">
-            <p>Tuổi 23, chúc bạn bước vào hành trình mới với tâm thế của một thiếu nữ tự tại, rạng rỡ theo cách mà một đóa hoa tự nở, chẳng cần đợi ai ngắm nhìn.</p>
-            <p>Mong bạn luôn đủ bản lĩnh để bảo vệ sự kiêu hãnh vốn có, đủ tỉnh táo để khước từ những ồn ào không xứng đáng, và đủ sâu sắc để tận hưởng niềm vui theo cách riêng biệt nhất.</p>
-          </div>
-          <div class="cake"></div>
-        </div>
-      </section>
+      </div>
     </div>
 
-    <p class="footer" id="hintText">Chạm vào thiệp để bắt đầu câu chuyện & bật nhạc.</p>
+    <p class="footer">Nhấn nút bên trên nếu muốn nghe "River Flows In You".</p>
   </div>
 
   <audio id="bg" src="River Flows In You (Piano Cover).mp3" preload="auto" loop></audio>
   <script>
-    const screens = Array.from(document.querySelectorAll(".screen"));
-    const card = document.getElementById("card");
-    const bg = document.getElementById("bg");
     const btnPlay = document.getElementById("btnPlay");
-    const hintText = document.getElementById("hintText");
-
-    let current = 0;
-    let started = false;
+    const bg = document.getElementById("bg");
     let musicOn = false;
 
-    function showScreen(index) {
-      current = Math.max(0, Math.min(index, screens.length - 1));
-      screens.forEach((s, i) => {
-        s.classList.toggle("active", i === current);
-      });
-    }
-
-    async function ensureMusic() {
-      if (!bg || musicOn) return;
-      try {
-        await bg.play();
-        musicOn = true;
-      } catch (e) {
-        // có thể bị chặn autoplay, không sao
-      }
-    }
-
-    function typeText(el, text, speed, done) {
-      if (!el) return;
-      el.textContent = text;
-      if (typeof done === "function") done();
-    }
-
-    function startStory() {
-      if (started) return;
-      started = true;
-      if (hintText) hintText.textContent = "Đang kể chuyện cho bạn nghe...";
-      ensureMusic();
-
-      const pastLine1 = document.getElementById("pastLine1");
-      const pastLine2 = document.getElementById("pastLine2");
-      const nowLine = document.getElementById("nowLine");
-      const nowPhoto = document.getElementById("nowPhoto");
-
-      const text1 = "\"Ngày ấy, thế giới chỉ nhỏ bằng một viên kẹo.\"";
-      const text2 = "Ai mà ngờ cô bé này...";
-      const textNow = "\"...Lại trở thành phiên bản rực rỡ nhất của chính mình hôm nay và sau này.\"";
-
-      // Trang 1
-      typeText(pastLine1, text1, 50, () => {
-        setTimeout(() => {
-          typeText(pastLine2, text2, 50, () => {
-            // Trang 2
-            setTimeout(() => {
-              showScreen(1);
-              setTimeout(() => {
-                typeText(nowLine, textNow, 55, () => {
-                  setTimeout(() => {
-                    if (nowLine) nowLine.style.opacity = "0";
-                    setTimeout(() => {
-                      if (nowPhoto) nowPhoto.style.opacity = "1";
-                    }, 400);
-                  }, 900);
-                });
-              }, 400);
-            }, 600);
-          });
-        }, 500);
-      });
-
-      // Sang trang 3 sau một chút
-      setTimeout(() => {
-        showScreen(2);
-        if (hintText) hintText.textContent = "Chúc mừng sinh nhật Minh Anh :3";
-      }, 11000);
-    }
-
-    card?.addEventListener("click", () => {
-      startStory();
-    });
-
-    btnPlay?.addEventListener("click", async (e) => {
-      e.stopPropagation();
+    btnPlay?.addEventListener("click", async () => {
       if (!bg) return;
       try {
         if (!musicOn) {
           await bg.play();
           musicOn = true;
+          btnPlay.querySelector("span:nth-child(2)").textContent = "Tắt nhạc";
         } else {
           bg.pause();
           musicOn = false;
+          btnPlay.querySelector("span:nth-child(2)").textContent = "Bật nhạc";
         }
-      } catch {}
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Thiệp Minh Anh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617 55%, #000 100%);
-      color: #f9fafb;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
-    }
-    .card {
-      width: 100%;
-      max-width: 430px;
-      border-radius: 24px;
-      padding: 1.6rem 1.4rem 1.8rem;
-      background: radial-gradient(circle at top left, rgba(147, 197, 253, 0.3), transparent 55%), #020617;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.2rem;
-    }
-    .tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
-    .play {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-    }
-    .play-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-    .photo-main {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 2px solid rgba(148, 163, 184, 0.9);
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 1);
-      margin-bottom: 0.9rem;
-      position: relative;
-    }
-    .photo-main img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-    .crown {
-      position: absolute;
-      top: 10px;
-      left: 12px;
-      font-size: 1.4rem;
-      text-shadow: 0 0 14px rgba(251, 191, 36, 0.9);
-    }
-    .photo-baby {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.9);
-      margin-bottom: 1.1rem;
-    }
-    .photo-baby img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-    .screens {
-      position: relative;
-      min-height: 320px;
-    }
-    .screen {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      justify-content: center;
-    }
-    .screen.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-    .story-text {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 0.96rem;
-      line-height: 1.7;
-      text-align: center;
-    }
-    .story-line {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .story-line.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .letter {
-      position: relative;
-      background: #fdf8f3;
-      color: #111827;
-      border-radius: 18px;
-      padding: 1.2rem 1.3rem 1.3rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
-      filter: contrast(0.95) brightness(1.05);
-    }
-    .letter::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      pointer-events: none;
-    }
-    .letter-title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 0.95rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-    .letter-body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-    .letter-body p + p { margin-top: 0.7rem; }
-    .footer {
-      margin-top: 1rem;
-      font-size: 0.78rem;
-      opacity: 0.78;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <div class="card" id="card">
-    <div class="header">
-      <div>
-        <div class="tag">01.02 · Minh Anh</div>
-      </div>
-      <button class="play" id="btnPlay">
-        <span class="play-dot"></span>
-        <span>River Flows In You</span>
-      </button>
-    </div>
-
-    <div class="screens">
-      <!-- Trang 1: Chuyện ngày xưa -->
-      <section class="screen active" data-screen="0">
-        <div class="photo-main">
-          <img src="Manhbe.jpg" alt="Minh Anh bé" />
-        </div>
-        <div class="story-text">
-          <p id="pastLine1" class="story-line">"Ngày ấy, thế giới chỉ nhỏ bằng một viên kẹo."</p>
-          <p id="pastLine2" class="story-line">Ai mà ngờ cô bé này...</p>
-        </div>
-      </section>
-
-      <!-- Trang 2: Chuyện bây giờ -->
-      <section class="screen" data-screen="1">
-        <div class="story-text">
-          <p id="nowLine" class="story-line">"...Lại trở thành phiên bản rực rỡ nhất của chính mình hôm nay và sau này."</p>
-        </div>
-        <div class="photo-main" id="nowPhoto" style="opacity: 0; transition: opacity 0.6s ease;">
-          <span class="crown">👑</span>
-          <img src="MAnh.jpg" alt="Minh Anh" />
-        </div>
-      </section>
-
-      <!-- Trang 3: Lời chúc -->
-      <section class="screen" data-screen="2">
-        <div class="photo-baby">
-          <img src="Manhbe.jpg" alt="Minh Anh bé" />
-        </div>
-        <div class="letter">
-          <div class="letter-title">Gửi Minh Anh,</div>
-          <div class="letter-body">
-            <p>Tuổi 23, chúc bạn bước vào hành trình mới với tâm thế của một thiếu nữ tự tại, rạng rỡ theo cách mà một đóa hoa tự nở, chẳng cần đợi ai ngắm nhìn.</p>
-            <p>Mong bạn luôn đủ bản lĩnh để bảo vệ sự kiêu hãnh vốn có, đủ tỉnh táo để khước từ những ồn ào không xứng đáng, và đủ sâu sắc để tận hưởng niềm vui theo cách riêng biệt nhất.</p>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <p class="footer" id="hintText">Chạm vào thiệp để bắt đầu câu chuyện & bật nhạc.</p>
-  </div>
-
-  <audio id="bg" src="River Flows In You (Piano Cover).mp3" preload="auto" loop></audio>
-  <script>
-    const screens = Array.from(document.querySelectorAll(".screen"));
-    const card = document.getElementById("card");
-    const bg = document.getElementById("bg");
-    const btnPlay = document.getElementById("btnPlay");
-    const hintText = document.getElementById("hintText");
-
-    let current = 0;
-    let started = false;
-    let musicOn = false;
-
-    function showScreen(index) {
-      current = Math.max(0, Math.min(index, screens.length - 1));
-      screens.forEach((s, i) => {
-        s.classList.toggle("active", i === current);
-      });
-    }
-
-    async function ensureMusic() {
-      if (!bg || musicOn) return;
-      try {
-        await bg.play();
-        musicOn = true;
       } catch (e) {
-        // có thể bị chặn autoplay, không sao
+        // nếu bị chặn autoplay thì bỏ qua
       }
-    }
-
-    function startStory() {
-      if (started) return;
-      started = true;
-      if (hintText) hintText.textContent = "Đang kể chuyện cho bạn nghe...";
-      ensureMusic();
-
-      const pastLine1 = document.getElementById("pastLine1");
-      const pastLine2 = document.getElementById("pastLine2");
-      const nowLine = document.getElementById("nowLine");
-      const nowPhoto = document.getElementById("nowPhoto");
-
-      setTimeout(() => {
-        pastLine1?.classList.add("visible");
-      }, 800);
-
-      setTimeout(() => {
-        pastLine2?.classList.add("visible");
-      }, 2600);
-
-      setTimeout(() => {
-        showScreen(1);
-        setTimeout(() => {
-          nowLine?.classList.add("visible");
-        }, 700);
-
-        setTimeout(() => {
-          if (nowLine) nowLine.classList.remove("visible");
-          setTimeout(() => {
-            if (nowPhoto) nowPhoto.style.opacity = "1";
-          }, 400);
-        }, 2600);
-      }, 4200);
-
-      setTimeout(() => {
-        showScreen(2);
-        if (hintText) hintText.textContent = "Chúc mừng sinh nhật Minh Anh :3";
-      }, 8400);
-    }
-
-    card?.addEventListener("click", () => {
-      startStory();
-    });
-
-    btnPlay?.addEventListener("click", async (e) => {
-      e.stopPropagation();
-      if (!bg) return;
-      try {
-        if (!musicOn) {
-          await bg.play();
-          musicOn = true;
-        } else {
-          bg.pause();
-          musicOn = false;
-        }
-      } catch (err) {}
     });
   </script>
 </body>
 </html>
+
